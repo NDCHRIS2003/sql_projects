@@ -1,0 +1,64 @@
+-- create users Table
+
+CREATE TABLE Users 
+(
+  UserID int primary key identity (1,1),
+  EmailAddress varchar(40),
+  FirstName varchar (50) not null,
+  LastNmae varchar (60) not null 
+  )
+
+--- create Products Table
+
+CREATE TABLE Products
+(
+  ProductID int primary key identity (121,1),
+  ProductName varchar (50) not null
+  )
+
+--- create Download Table
+
+CREATE TABLE DOWNLOADS
+(
+  DownloadID int primary key identity (1233,1),
+  UserID int references Users(UserID),
+  DownloadDate datetime,
+  FileName varchar (50),
+  ProductID int references Products(ProductID)
+  )
+
+----inserte data into Users
+
+insert into Users
+  values ('johnsmith@gmail.com', 'John', 'Smith'),
+         ( 'janedoe@yahoo.com', 'Jane', 'Doe'),
+		 ('janedoe@yahoo.com' , 'Jane', 'Doe'),
+		 ( 'nm@gmail.com', 'North' , 'Man'),
+		 ('eg@gmail.com', 'East', 'Girl'),
+		 ('ws@gmail.com', 'West', 'Son'),
+		 ('mj@gmail.com', 'Mary', 'Jay')
+
+
+---- insert data into Download
+
+insert into Downloads 
+ values ( getdate()-28, 'Petals_are_falling mp3'),
+        ( getdate()-27, 'Tun_signal mp3'),
+		( getdate()-26, 'One_house_town mp3'),
+		(getdate()-25, 'RD')
+		( getdate()-24, 'TR'),
+		(getdate()-23, 'RA'),
+		(getdate()-22, 'SH')
+
+
+---- insert data into Products
+
+insert into Products
+      values ('Local Music Vol 1'),
+	         ('Local Music Vol 1')
+			 ('Local Music Vol 2')
+			 ('Road')
+			 ('Tree')
+			 ('Ball')
+			 ('Shoes')
+

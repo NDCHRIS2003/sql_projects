@@ -1,0 +1,66 @@
+-- create users Table
+
+CREATE TABLE Users 
+(
+  UserID int primary key identity (1,1),
+  EmailAddress varchar(40),
+  FirstName varchar (50) not null,
+  LastNmae varchar (60) not null 
+  )
+
+--- create Products Table
+
+CREATE TABLE Products
+(
+  ProductID int primary key identity (121,1),
+  ProductName varchar (50) not null
+  )
+
+--- create Download Table
+
+CREATE TABLE DOWNLOADS
+(
+  DownloadID int primary key identity (1233,1),
+  UserID int references Users(UserID),
+  DownloadDate datetime,
+  FileName varchar (50),
+  ProductID int references Products(ProductID)
+  )
+
+----inserte data into Users
+
+insert into Users
+  values ('johnsmith@gmail.com', 'John', 'Smith'),
+         ( 'janedoe@yahoo.com', 'Jane', 'Doe'),
+		 ('janedoe@yahoo.com' , 'Jane', 'Doe'),
+		 ( 'nm@gmail.com', 'North' , 'Man'),
+		 ('eg@gmail.com', 'East', 'Girl'),
+		 ('ws@gmail.com', 'West', 'Son'),
+		 ('mj@gmail.com', 'Mary', 'Jay')
+
+
+---- insert data into Download
+
+insert into Downloads 
+ values (1233, 01, getdate()-28, 'Petals_are_falling mp3', 121),
+        (1234, 02, getdate()-27, 'Tun_signal mp3', 122),
+		( 1235, 03, getdate()-26, 'One_house_town mp3', 123),
+		(1236, 04, getdate()-25, 'RD', 124),
+		(1237, 05, getdate()-24, 'TR', 125),
+		(1238, 06, getdate()-23, 'RA', 126),
+		(1239, 07, getdate()-22, 'SH', 127)
+
+
+---- insert data into Products
+
+insert into Products
+      values ('Local Music Vol 1'),
+	         ('Local Music Vol 1')
+			 ('Local Music Vol 2')
+			 ('Road')
+			 ('Tree')
+			 ('Ball')
+			 ('Shoes')
+
+
+select * from users
